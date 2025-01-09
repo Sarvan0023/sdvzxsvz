@@ -1,10 +1,9 @@
 import product from '../models/productModel.js';
+
 export const addProduct = async (req, res) => {
     try {
         const newProduct = new product(req.body);
-        if (!newProduct) {
-            return res.status(400).json({ success: false, message: "Invalid product" });
-        }
+      
         await newProduct.save();
         return res.status(201).json({ success: true, message: "Product added successfully" });
     }
@@ -14,3 +13,17 @@ export const addProduct = async (req, res) => {
       .json({ sucsess: false, message: "Internal server error" });
     }
     };
+    export const deleteProduct = async (req, res) => { 
+        const { id } = req.params;
+        try {
+        await product.findByIdAndDelete(id)
+          
+            return res.status(200).json({ success: true, message: "Product deleted successfully" });
+
+        } catch (error) {
+            return res
+            .status(500)
+            .json({ success: false, message: "Internal server error" });
+        }
+    }
+
