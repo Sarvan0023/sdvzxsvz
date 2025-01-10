@@ -13,9 +13,7 @@ app.use("/api/products", productRouter);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-app.post("/post", (req, res) => {
-  res.send("Product has been added to the database");
-});
+
 app.listen(  port, () => {
   console.log(`Server is running on port ${`http://localhost:${port}`}`);
 });
