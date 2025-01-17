@@ -1,33 +1,43 @@
-import React from 'react'
-import { IoIosSearch } from "react-icons/io";
-import { CiHeart } from "react-icons/ci";
-import { FaShoppingBasket } from "react-icons/fa";
+import React from 'react';
+import "./Navbar.scss"
 
 const Navbar = () => {
-    return (
-      <nav className="flex items-center justify-between px-8 py-4 shadow-md bg-white">
-    
-        <div className="text-2xl font-bold">
-          <span className="text-black">COLO</span>
-          <span className="text-red-500">SHOP</span>
-        </div>
-  
-        <ul className="flex space-x-8 text-sm font-medium text-gray-700">
-          <li className="hover:text-black cursor-pointer">HOME</li>
-          <li className="hover:text-black cursor-pointer">SHOP</li>
-          <li className="hover:text-black cursor-pointer">PROMOTION</li>
-          <li className="hover:text-black cursor-pointer">PAGES</li>
-          <li className="hover:text-black cursor-pointer">BLOG</li>
-          <li className="hover:text-black cursor-pointer"><IoIosSearch /></li>
-          <li className="hover:text-black cursor-pointer"><CiHeart /></li>
-          <li className="hover:text-black cursor-pointer"><FaShoppingBasket /></li>
-
+  return (
+    <nav className="navbar">
+      <div className="navbar-left">
+        <h1 className="navbar-logo">Estore<span>.</span></h1>
+      </div>
+      <div className="navbar-center">
+        <ul className="navbar-menu">
+          <li className="menu-item">Home</li>
+          <li className="menu-item">Catagori</li>
+          <li className="menu-item">
+            Latest <span className="hot-badge">HOT</span>
+          </li>
+          <li className="menu-item">Blog</li>
+          <li className="menu-item">Pages</li>
+          <li className="menu-item">Contact</li>
         </ul>
-  
- 
-        
-      </nav>
-    );
-  };
+      </div>
+      <div className="navbar-right">
+        <div className="search-bar">
+          <input type="text" placeholder="Search products" />
+          <i className="fas fa-search"></i>
+        </div>
+        <div className="icon-container">
+          <div className="icon">
+            <i className="fas fa-heart"></i>
+            <span className="icon-badge">02</span>
+          </div>
+          <div className="icon">
+            <i className="fas fa-shopping-cart"></i>
+            <span className="icon-badge">02</span>
+          </div>
+        </div>
+        <button className="sign-in-btn">Sign In</button>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
